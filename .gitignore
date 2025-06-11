@@ -1,0 +1,62 @@
+# 기본 Python 무시 파일
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+*.pyo
+*.db
+*.sqlite3
+*.log
+
+# 가상환경 (venv, env 등)
+venv/
+env/
+.venv/
+
+# Jupyter notebook checkpoint
+.ipynb_checkpoints/
+
+# Whisper 모델/캐시 파일
+.whisper/
+.cache/
+*.pt
+
+# 파이토치 모델/캐시
+*.pth
+*.pt
+*.ckpt
+torch_cache/
+
+# 음성 파일 (출력/임시/변환 등)
+*.wav
+*.mp3
+*.flac
+*.ogg
+*.m4a
+*.opus
+*.temp
+*.raw
+
+# 임시 세그먼트 파일
+temp_segment_*.wav
+
+# VSCode, PyCharm 등 IDE 환경
+.vscode/
+.idea/
+*.code-workspace
+
+# 시스템 파일
+.DS_Store
+Thumbs.db
+
+# 로그/결과/백업 파일
+*.bak
+*.tmp
+*.out
+output/
+outputs/
+transcripts/
+results/
+
+# 기타
+# (프로젝트에 따라 필요 시 아래에 추가)

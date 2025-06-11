@@ -1,0 +1,16 @@
+# PyTorch with CUDA 12.1
+--extra-index-url https://download.pytorch.org/whl/cu121
+torch==2.5.1+cu121
+torchaudio==2.5.1+cu121
+
+# Audio processing
+openai-whisper>=20231117
+soundfile>=0.13.1
+numpy>=1.24.0
+ffmpeg-python>=0.2.0
+pydub>=0.25.1
+webrtcvad>=2.0.10
+librosa>=0.10.0
+
+# Performance optimization
+numba>=0.58.0  # librosa 성능 향상
