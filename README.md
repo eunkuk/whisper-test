@@ -1,13 +1,14 @@
 # 🎤 Whisper 음성 인식 프로젝트
 
 이 프로젝트는 [OpenAI Whisper](https://github.com/openai/whisper)와 **빠른 음성 구간 분리**([webrtcvad](https://github.com/wiseman/py-webrtcvad))를 활용하여  
-MP3 파일을 손쉽게 텍스트로 변환하는 자동화 도구입니다.
+다양한 오디오 파일을 손쉽게 텍스트로 변환하는 자동화 도구입니다.
 
 ---
 
 ## ✅ 주요 기능
 
-- MP3 → WAV(16kHz, mono) 변환 (ffmpeg 사용)
+- **다양한 오디오 형식 지원** (mp3, wav, m4a, flac, ogg, wma, aac 등)
+- 오디오 → WAV(16kHz, mono) 변환 (ffmpeg 사용)
 - **최적화된 VAD** 처리로 빠른 음성 구간 분리
 - Whisper 모델 기반 음성→텍스트(STT) 변환
 - 중복 텍스트 자동 제거
@@ -97,11 +98,18 @@ python test_whisper.py --model small   # 보통, 정확도 좋음
 python test_whisper.py --model medium  # 느림, 정확도 매우 좋음 (기본값)
 python test_whisper.py --model large   # 매우 느림, 정확도 최상
 
+#    다양한 오디오 파일 처리:
+python test_whisper.py --input "C:/audio/lecture.mp3"  # MP3 파일
+python test_whisper.py --input "C:/audio/lecture.wav"  # WAV 파일
+python test_whisper.py --input "C:/audio/lecture.m4a"  # M4A 파일
+python test_whisper.py --input "C:/audio/lecture.flac" # FLAC 파일
+python test_whisper.py --input "C:/audio/lecture.ogg"  # OGG 파일
+
 #    여러 파일 한번에 처리:
-python test_whisper.py --input "C:/audio/lecture*.mp3" --output "output"
+python test_whisper.py --input "C:/audio/lecture*.*" --output "output"
 
 #    전체 옵션 조합 예시:
-python test_whisper.py --use-gpu --model medium --input "C:/audio/*.mp3" --output "output"
+python test_whisper.py --use-gpu --model medium --input "C:/audio/*.*" --output "output"
 
 ############################################################
 # 참고:
@@ -235,3 +243,4 @@ python test_whisper.py --use-gpu --model medium --input "C:/audio/*.mp3" --outpu
 - webrtcvad 설치 실패: Visual C++ 빌드 도구 설치
 - 메모리 부족: 더 작은 Whisper 모델 사용 (`tiny`, `base`, `small`)
 - librosa 설치 실패: numba 패키지 재설치
+- 오디오 파일 변환 실패: FFmpeg 재설치 또는 다른 오디오 형식 시도
