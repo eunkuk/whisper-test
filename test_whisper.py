@@ -298,7 +298,10 @@ def process_file(audio_path, output_dir, model, device, file_num, total_files):
     # 중복 제거 및 저장
     unique_texts = remove_duplicates(all_text)
     
-    txt_path = os.path.join(output_dir, f"KNOU19780012023100{file_num}.txt")
+    # 입력 파일 이름을 기반으로 출력 파일 이름 생성
+    base_name = os.path.splitext(os.path.basename(audio_path))[0]
+    txt_path = os.path.join(output_dir, f"{base_name}.txt")
+    
     with open(txt_path, "w", encoding="utf-8") as f:
         f.write("\n\n".join(unique_texts))
 
